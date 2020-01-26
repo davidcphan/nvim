@@ -2,7 +2,6 @@ call plug#begin('~/.config/nvim/bundle')
 Plug 'preservim/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine'
@@ -14,27 +13,27 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 call plug#end()
 
-" basics
- filetype plugin indent on
- syntax on
- set number
- set incsearch
- set ignorecase
- set smartcase
- set nohlsearch
- set tabstop=4
- set softtabstop=0
- set shiftwidth=4
- set expandtab
- set nobackup
- set nowritebackup
- set noswapfile
- set nowrap
-"
-" " preferences
+"-------Basics----------"
+filetype plugin indent on
+syntax on
+set number
+set incsearch
+set ignorecase
+set smartcase
+set nohlsearch
+set tabstop=4
+set softtabstop=0
+set shiftwidth=4
+set expandtab
+set nobackup
+set nowritebackup
+set noswapfile
+set nowrap
+
+"-------Preferences--------"
 " inoremap jk <ESC>
 " let mapleader = "\<Space>"
-" set pastetoggle=<F2>
+set pastetoggle=<F2>
 " " j/k will move virtual lines (lines that wrap)
 " noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 " noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
@@ -57,7 +56,8 @@ call plug#end()
 " autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 "
 " " plugin settings
-" Theme
+"
+"---------Theme-------------"
 syntax enable
 colorscheme gruvbox 
 let g:airline_theme='deus'
@@ -76,28 +76,19 @@ let g:NERDTreeShowBookmarks=1
 " let g:nerdtree_tabs_focus_on_files=1
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 " set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
-"----------------------------"
 
-highlight Pmenu ctermbg=8 guibg=#004D99 
-highlight PmenuSel ctermbg=1 guifg=#dddd00 guibg=#1f82cd
-highlight PmenuSbar ctermbg=0 guibg=#1f82cd
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" coc config
+"---------Coc config---------"
 let g:coc_global_extensions = [
  \ 'coc-snippets',
  \ 'coc-pairs',
  \ 'coc-tsserver',
  \ 'coc-prettier', 
- \ 'coc-json', 
+ \ 'coc-json',
+ \ 'coc-html',
+ \ 'coc-css',
+ \ 'coc-yaml',
+ \ 'coc-python',
+ \ 'coc-phpls',
  \ ]
 
 "if hidden is not set, TextEdit might fail.
